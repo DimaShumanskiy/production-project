@@ -11,10 +11,9 @@ export default {
     // bail: 0,
 
     // The directory where Jest should store its cached dependency information
-    // cacheDirectory: "/private/var/folders/wx/q03gzz5s70q2y41p4rwq44180000gp/T/jest_dy",
+    // cacheDirectory: "C:\\Users\\tim\\AppData\\Local\\Temp\\jest",
 
     // Automatically clear mock calls, instances and results before every test
-
     clearMocks: true,
     testEnvironment: 'jsdom',
     coveragePathIgnorePatterns: [
@@ -31,20 +30,11 @@ export default {
     moduleDirectories: [
         'node_modules',
     ],
-
     testMatch: [
-    // default
-    //   '**/__tests__/**/*.[jt]s?(x)',
-    //   '**/?(*.)+(spec|test).[tj]s?(x)',
-        '<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)', // new
+        // Обнаружил разницу между МАК ОС и ВИНДОУС!!!
+        '<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)',
     ],
     rootDir: '../../',
-    preset: 'ts-jest',
-
-    // transform: {
-    // '^.+\\.(t|j)s?$': 'ts-jest',
-    // },
-
     // Indicates whether the coverage information should be collected while executing the test
     // collectCoverage: false,
 
@@ -162,7 +152,7 @@ export default {
 
     // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
     // testPathIgnorePatterns: [
-    //   "/node_modules/"
+    //   "\\\\node_modules\\\\"
     // ],
 
     // The regexp pattern or array of patterns that Jest uses to detect test files
@@ -185,8 +175,8 @@ export default {
 
     // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
     // transformIgnorePatterns: [
-    //   "/node_modules/",
-    //   "\\.pnp\\.[^\\/]+$"
+    //   "\\\\node_modules\\\\",
+    //   "\\.pnp\\.[^\\\\]+$"
     // ],
 
     // An array of regexp pattern strings that are matched against all modules before the module loader will automatically return a mock for them
