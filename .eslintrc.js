@@ -40,7 +40,7 @@ module.exports = {
         'no-shadow': 'off',
         'no-underscore-dangle': 'off',
         'no-unused-vars': 'warn',
-        'max-len': ['error', { ignoreComments: true }],
+        'max-len': ['error', { ignoreComments: true, code: 100 }],
 
         'i18next/no-literal-string': ['error', { markupOnly: true }],
 

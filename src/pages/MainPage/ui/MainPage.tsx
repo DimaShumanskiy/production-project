@@ -6,7 +6,6 @@ const MainPage = () => {
     const { t } = useTranslation('main');
     return (
         <div>
-            <BagButton />
             {t('Главная страница')}
         </div>
     );
