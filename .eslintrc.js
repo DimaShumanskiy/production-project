@@ -23,6 +23,8 @@ module.exports = {
         'i18next',
     ],
     rules: {
+        'linebreak-style': 0,
+        //
         indent: [2, 4],
         'react/jsx-indent': [2, 4], // {indentMode: 4, ignoreTernaryOperator: true}
         'react/jsx-indent-props': [2, 4],
