@@ -5,7 +5,7 @@ import { Theme } from 'app/providers/ThemeProvider';
 import Button, { ButtonSize, ButtonTheme } from './Button';
 
 export default {
-    title: 'widgets/Button',
+    title: 'shared/Button',
     component: Button,
     argTypes: {
         backgroundColor: { control: 'color' },
@@ -34,6 +34,11 @@ export const BackgroundTheme = Template.bind({});
 BackgroundTheme.args = {
     children: 'Text',
     theme: ButtonTheme.BACKGROUND,
+};
+export const ClearInverted = Template.bind({});
+ClearInverted.args = {
+    children: 'Text',
+    theme: ButtonTheme.CLEAR_INVERTED,
 };
 export const BackgroundInvertedTheme = Template.bind({});
 BackgroundInvertedTheme.args = {

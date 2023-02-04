@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import Button, { ButtonTheme } from 'widgets/Button/ui/Button';
+import Button, { ButtonTheme } from 'shared/ui/Button/ui/Button';
 
 describe('Button', () => {
     test('render text in button', () => {
