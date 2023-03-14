@@ -1,6 +1,5 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { BagButton } from 'app/providers/ErrorBoundary';
 
 const MainPage = () => {
     const { t } = useTranslation('main');
