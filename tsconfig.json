@@ -11,13 +11,12 @@
     "jsx": "react-jsx",
     // Компилятор будет обрабатывать не только TS файлы, но и JS файлы
     "allowJs": true,
+    "strict": true,
     "moduleResolution": "node",
     // Для абсолютного импорта
     "baseUrl": ".",
     "paths": {
-      "*": [
-        "./src/*"
-      ]
+      "@/*": ["./src/*"]
     },
     // esModuleInterop позволяет работать с пакетами, которые используют
     // common js как с обычными пакета с помощью import (require() module.export) = common js
@@ -33,7 +32,8 @@
     // import * as React from 'react';
     // можно писать такой
     // import React from 'react';
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "isolatedModules": true
   },
   "ts-node": {
     "compilerOptions": {
@@ -41,7 +41,7 @@
     }
   },
   "include": [
-    "./config/jest/jestSetup.ts",
+    "./config/jest/setupTests.ts",
     "./src/**/*.ts",
     "./src/**/*.tsx"
   ]

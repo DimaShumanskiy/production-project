@@ -1,11 +1,7 @@
-node_modules
 /build
 node_modules
 .idea
-.vscode
-.DS_Store
-.dist
 /storybook-static
-
 .loki/report.html
 .loki/report.json
+/reports/unit

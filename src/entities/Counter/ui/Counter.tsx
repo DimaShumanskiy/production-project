@@ -1,36 +1,48 @@
-import React from 'react';
-import Button from 'shared/ui/Button/ui/Button';
-import { useDispatch, useSelector } from 'react-redux';
-import { getCounterValue } from 'entities/Counter/model/selectors/getCounterValue/getCounterValue';
+import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import { counterActions } from '../model/slice/counterSlice';
+import { Button } from '@/shared/ui/Button';
+import { useCounterActions } from '../model/slice/counterSlice';
+import { useCounterValue } from '../model/selectors/getCounterValue/getCounterValue';
 
-interface CounterProps {
-
-}
-
-const Counter = (props: CounterProps) => {
+export const Counter = () => {
     const dispatch = useDispatch();
-
-    const value = useSelector(getCounterValue);
+    const counterValue = useCounterValue();
     const { t } = useTranslation();
-    const increment = () => {
-        dispatch(counterActions.increment());
+    const { decrement, increment, add } = useCounterActions();
+
+    const handleInc = () => {
+        increment();
     };
 
-    const decrement = () => {
-        dispatch(counterActions.decrement());
+    const handleDec = () => {
+        decrement();
+    };
+
+    const handleAddFive = () => {
+        add(5);
     };
 
     return (
         <div>
-            <h1 data-testid="value-title">
-                {value}
-            </h1>
-            <Button onClick={increment} data-testid="increment-btn">{t('increment')}</Button>
-            <Button onClick={decrement} data-testid="decrement-btn">{t('decrement')}</Button>
+            <h1 data-testid="value-title">{counterValue}</h1>
+            <Button
+                onClick={handleAddFive}
+                data-testid="increment-btn5"
+            >
+                {t('add5')}
+            </Button>
+            <Button
+                onClick={handleInc}
+                data-testid="increment-btn"
+            >
+                {t('increment')}
+            </Button>
+            <Button
+                data-testid="decrement-btn"
+                onClick={handleDec}
+            >
+                {t('decrement')}
+            </Button>
         </div>
     );
 };
-
-export default Counter;

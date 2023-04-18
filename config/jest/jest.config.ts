@@ -8,17 +8,9 @@ import path from 'path';
 export default {
     globals: {
         __IS_DEV__: true,
+        __API__: '',
+        __PROJECT__: 'jest',
     },
-    // All imported modules in your tests should be mocked automatically
-    // automock: false,
-
-    // Stop running tests after `n` failures
-    // bail: 0,
-
-    // The directory where Jest should store its cached dependency information
-    // cacheDirectory: "C:\\Users\\tim\\AppData\\Local\\Temp\\jest",
-
-    // Automatically clear mock calls, instances and results before every test
     clearMocks: true,
     testEnvironment: 'jsdom',
     coveragePathIgnorePatterns: [
@@ -35,18 +27,29 @@ export default {
     moduleDirectories: [
         'node_modules',
     ],
-    modulePaths: ['<rootDir>/src'], // absolute-paths
+    modulePaths: [
+        '<rootDir>src',
+    ],
     testMatch: [
-    // Обнаружил разницу между МАК ОС и ВИНДОУС!!!
+        // Обнаружил разницу между МАК ОС и ВИНДОУС!!!
         '<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)',
     ],
     rootDir: '../../',
-    setupFilesAfterEnv: ['<rootDir>config/jest/jestSetup.ts'],
+    setupFilesAfterEnv: ['<rootDir>config/jest/setupTests.ts'],
     moduleNameMapper: {
         '\\.s?css$': 'identity-obj-proxy',
         '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
+        '^@/(.*)$': '<rootDir>/src/$1',
     },
-
+    reporters: [
+        'default',
+        ['jest-html-reporters', {
+            publicPath: '<rootDir>/reports/unit',
+            filename: 'report.html',
+            // openReport: true,
+            inlineSource: true,
+        }],
+    ],
     // Indicates whether the coverage information should be collected while executing the test
     // collectCoverage: false,
 
@@ -86,9 +89,6 @@ export default {
 
     // A path to a module which exports an async function that is triggered once after all test suites
     // globalTeardown: undefined,
-
-    // A set of global variables that need to be available in all test environments
-    // globals: {},
 
     // The maximum amount of workers used to run your tests. Can be specified as % or a number. E.g. maxWorkers: 10% will use 10% of your CPU amount + 1 as the maximum worker number. maxWorkers: 2 will use a maximum of 2 workers.
     // maxWorkers: "50%",
